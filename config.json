@@ -1,0 +1,54 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "port": 10087,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": { "path": "/vless" }
+      }
+    },
+    {
+      "port": 10086,
+      "listen": "127.0.0.1",
+      "protocol": "vmess",
+      "settings": {
+        "clients": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": { "path": "/vmess" }
+      }
+    },
+    {
+      "port": 10088,
+      "listen": "127.0.0.1",
+      "protocol": "trojan",
+      "settings": {
+        "clients": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": { "path": "/trojan" }
+      }
+    }
+  ],
+  "outbounds": [
+    { "protocol": "freedom", "settings": {} },
+    { "protocol": "blackhole", "settings": {}, "tag": "blocked" }
+  ],
+  "routing": {
+    "rules": [
+      { "type": "field", "ip": ["geoip:private"], "outboundTag": "blocked" }
+    ]
+  }
+}

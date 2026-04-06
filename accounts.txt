@@ -1,0 +1,6 @@
+# ══════════════════════════════════════════════
+# ADD YOUR USERNAMES BELOW — one per line
+# Username = UUID
+# Lines starting with # are ignored
+# ══════════════════════════════════════════════
+chad
